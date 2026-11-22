@@ -1,0 +1,132 @@
+/* The gallery page only; not part of the style package. */
+
+.kit {
+  max-width: 76em;
+  margin: 0 auto;
+  padding: 3em 2em 6em;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.kit-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 2.5em;
+}
+
+.kit-top h1 {
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.kit-top p {
+  margin: 0.6em 0 0;
+  color: var(--grey-quiet);
+}
+
+.kit-top a {
+  white-space: nowrap;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.kit-section {
+  display: grid;
+  grid-template-columns: 13em minmax(0, 1fr);
+  gap: 2em;
+  padding: 2em 0;
+  border-top: 1px solid var(--grey-rule);
+}
+
+.kit-section h2 {
+  margin: 0;
+  font: 500 11px/1.3 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.kit-section header p {
+  margin: 0.8em 0 0;
+  font-size: 0.88em;
+  line-height: 1.5;
+  color: var(--grey-quiet);
+}
+
+.kit-frame {
+  align-self: start;
+  margin-top: 0;
+}
+
+.kit-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+  gap: 1em;
+}
+
+.kit-chips li {
+  display: grid;
+  gap: 0.4em;
+}
+
+.kit-chips i {
+  display: block;
+  height: 2.6em;
+  border: 1px solid var(--grey-rule);
+}
+
+.kit-chips b {
+  font-weight: 600;
+}
+
+.kit-chips code {
+  font: 500 0.78em/1.3 var(--font-mono);
+  color: var(--grey-quiet);
+}
+
+.kit-space {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6em;
+}
+
+.kit-space li {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  align-items: center;
+  gap: 1em;
+}
+
+.kit-space code {
+  font: 500 0.78em/1.3 var(--font-mono);
+  color: var(--grey-quiet);
+}
+
+.kit-space i {
+  display: block;
+  height: 0.6em;
+  background: var(--black);
+}
+
+@media (max-width: 760px) {
+  .kit {
+    padding: 2em 1.2em 4em;
+  }
+
+  .kit-section {
+    grid-template-columns: 1fr;
+    gap: 1.2em;
+  }
+}

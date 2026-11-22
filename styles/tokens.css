@@ -1,0 +1,68 @@
+/*
+ * Design tokens: change the look here.
+ * Colour is black, white and one blue, plus greys. Sizes are in em so everything
+ * scales with the font size of the panel it sits in. The motion values are
+ * mirrored as numbers in lib/motion.ts (and the colours in lib/colors.ts).
+ */
+:root {
+  /* colour */
+  --black: #000;
+  --white: #fff;
+  --blue: #1840ff; /* links, the moving head, "own" marks */
+  --grey-text: #555; /* labels and notes on the page */
+  --grey-quiet: #8a8a8a; /* quiet text inside panels */
+  --grey-faint: #b4b4b4; /* points that are not current, small units */
+  --grey-rail: #d4d4d4; /* progress segments */
+  --grey-line: #d8d8d8; /* thin lines in diagrams */
+  --grey-rule: #ececec; /* hairlines between rows */
+  --grey-edge: #e5e5e5; /* picture frames */
+
+  /* type: two families, one weight scale */
+  --font-sans: "Geist Variable", system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  /* type scale in em, relative to the surrounding text */
+  --t-display: clamp(42px, 6.4vw, 96px); /* the big title in the scene */
+  --t-line: clamp(17px, 1.9vw, 25px); /* body text in the scene */
+  --t-h2: 2.4em; /* panel title */
+  --t-hero: 2.4em; /* the one big number */
+  --t-kw: 1.6em; /* the three-point headings */
+  --t-lead: 1.1em; /* the lead sentence of a slide */
+  --t-tile: 1.3em; /* tile numbers */
+  --t-list: 0.92em; /* plain lists */
+  --t-note: 0.88em; /* notes under a slide */
+  --t-tile-label: 0.9em;
+  --t-small: 0.82em; /* captions */
+  --t-label: 0.78em; /* small mono caps labels */
+
+  /* spacing in em */
+  --space-1: 0.4em;
+  --space-2: 0.6em;
+  --space-3: 0.8em;
+  --space-4: 1.2em;
+  --space-5: 2em;
+  --space-6: 3.5em;
+
+  /* panel */
+  --panel-pad: 2.2em 2.6em 2em;
+  --panel-font: clamp(13px, 0.62vw + 0.55vh + 2px, 19px);
+  --panel-top: 7vh; /* how far the points and the slide sit below the header */
+
+  /* motion: durations and easing curves (see lib/motion.ts) */
+  --dur-rise: 900ms;
+  --dur-leave: 240ms;
+  --stagger: 70ms;
+  --dur-bar: 700ms; /* the slash mark */
+  --dur-label: 600ms; /* the current label nudging right */
+  --dur-colour: 450ms; /* point colour change */
+  --dur-head: 550ms; /* panel header rising in */
+  --dur-panel: 500ms; /* panel fading in */
+  --delay-panel: 250ms;
+  --dur-tick: 500ms;
+  --dur-fade: 500ms; /* a scene line fading out */
+  --dur-fade-in: 700ms; /* a scene line fading in */
+  --delay-fade-in: 350ms;
+  --ease-rise: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-leave: cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-head: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

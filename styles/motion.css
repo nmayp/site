@@ -1,0 +1,124 @@
+/*
+ * Motion. The durations and curves come from tokens.css (and lib/motion.ts).
+ * Moving between slides: the old slide leaves, then the new one rises into focus, line by line.
+ * "Back" variants run the same moves the other way, for going to an earlier slide.
+ */
+
+.deck-body.in > * {
+  animation: deck-rise var(--dur-rise) var(--ease-rise) backwards;
+}
+
+/* stagger: each line starts one step after the one above it */
+.deck-body.in > :nth-child(2) { animation-delay: calc(var(--stagger) * 1); }
+.deck-body.in > :nth-child(3) { animation-delay: calc(var(--stagger) * 2); }
+.deck-body.in > :nth-child(4) { animation-delay: calc(var(--stagger) * 3); }
+.deck-body.in > :nth-child(5) { animation-delay: calc(var(--stagger) * 4); }
+.deck-body.in > :nth-child(6) { animation-delay: calc(var(--stagger) * 5); }
+.deck-body.in > :nth-child(7) { animation-delay: calc(var(--stagger) * 6); }
+.deck-body.in > :nth-child(8) { animation-delay: calc(var(--stagger) * 7); }
+
+.deck-body.out > * {
+  animation: deck-leave var(--dur-leave) var(--ease-leave) forwards;
+}
+
+@keyframes deck-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.6em);
+    filter: blur(6px);
+  }
+}
+
+@keyframes deck-leave {
+  to {
+    opacity: 0;
+    transform: translateY(-0.9em);
+    filter: blur(4px);
+  }
+}
+
+.deck-body.back.in > * {
+  animation-name: deck-rise-back;
+}
+
+.deck-body.back.out > * {
+  animation-name: deck-leave-back;
+}
+
+@keyframes deck-rise-back {
+  from {
+    opacity: 0;
+    transform: translateY(-1.6em);
+    filter: blur(6px);
+  }
+}
+
+@keyframes deck-leave-back {
+  to {
+    opacity: 0;
+    transform: translateY(0.9em);
+    filter: blur(4px);
+  }
+}
+
+/* ticks: each tick of a Ticks chart rises in (its delay is set in the component) */
+.deck-body .ticks line {
+  animation: tick-in var(--dur-tick) ease backwards;
+}
+
+@keyframes tick-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* track: the dot of the motion demo runs along its line (duration and curve are set in the component) */
+.deck-body .mo .track i {
+  animation-name: mo-run;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mo-run {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 0.6em);
+  }
+}
+
+/* reduced motion: slides appear at once, nothing slides, ticks and the dot rest in place */
+@media (prefers-reduced-motion: reduce) {
+  .hint .press {
+    animation: none;
+  }
+
+  .line,
+  .line.on {
+    transition: none;
+  }
+
+  .bench-head {
+    animation: none;
+  }
+
+  .deck-body.in > *,
+  .deck-body.out > * {
+    animation: none;
+  }
+
+  .deck-bar,
+  .deck-nav .lbl {
+    transition: none;
+  }
+
+  .deck-body .ticks line {
+    animation: none;
+  }
+
+  .deck-body .mo .track i {
+    animation: none;
+    left: calc(100% - 0.6em);
+  }
+}
